@@ -120,10 +120,36 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
+}
+
+.hover-underline {
+  position: relative;
+  /* default rəng */
+  text-decoration: none;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  /* xəttin yeri */
+  width: 0;
+  height: 2px;
+  /* xətt qalınlığı */
+  background-color: #088395;
+  /* underline rəngi */
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
 }
