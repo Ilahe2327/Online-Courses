@@ -7,12 +7,14 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { HeaderProps } from '@/app/(routes)/layout'
 import { Input } from '@/components/ui/input'
-import MobileMenu from './MobileMenu'
+// import MobileMenu from './MobileMenu'
+const MobileMenu = dynamic(() => import("./MobileMenu"), { ssr: false });
 import { UserButton } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { setQuery } from '@/redux/searchSlice'
 import { RiLoginCircleLine } from "react-icons/ri";
+import dynamic from 'next/dynamic'
 
 const Header = ({ title }: HeaderProps) => {
     const router = useRouter()
@@ -49,10 +51,10 @@ const Header = ({ title }: HeaderProps) => {
                 <Search className='absolute right-2 top-1 text-sm text-amber-50' onClick={searchItem} />
             </div>
             <div className='flex items-center space-x-2'>
-                <button className='bg-white p-1.5 rounded-full cursor-pointer'>
+                <button onClick={() => router.push('/sign-in')} className='bg-white p-1.5 rounded-full cursor-pointer'>
                     <User className='text-[#088395] text-sm' />
                 </button>
-                <button className='bg-white p-2 rounded-full cursor-pointer'>
+                <button onClick={() => router.push('/sign-up')} className='bg-white p-2 rounded-full cursor-pointer'>
                     <RiLoginCircleLine className='text-[#088395] text-xl' />
                 </button>
                 <button onClick={() => router.push('/basket')} className='bg-white p-1.5 rounded-full cursor-pointer'>

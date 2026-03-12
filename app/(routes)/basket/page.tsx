@@ -53,37 +53,42 @@ const BasketPage = () => {
           </div>
         ))
       }
-      <div className='justify-end flex w-4/5 mx-auto'>
-        <table className='w-full lg:w-1/2 border p-10 border-collapse'>
-          <thead className='carttotalsThead'>
-            <tr>
-              <th colSpan={2} className='bg-[#f5f5f5] h-[60px] ' >
-                <h2 style={{ color: 'black' }} className={`${rasingFont.className} text-left pl-3 text-2xl`}>CART TOTALS</h2>
-              </th>
-            </tr>
-          </thead>
-          <tbody className={`${roboto.className} text-left`}>
-            <tr className=''>
-              <td className='py-4 px-8'>Subtotal</td>
-              <td className='text-right py-4 px-8'>{totalAmount}</td>
-            </tr>
-            <tr>
-              <td className='py-4 px-8'>
-                Total
-              </td>
-              <td className='text-right py-4 px-8'>
-                {totalAmount}
-              </td>
-            </tr>
-            <tr>
-              <td className='p-3' colSpan={2}>
-                <Link href={'/checkout'} className='flex justify-center'><button className={`${roboto.className} w-4/5  text-lg p-2 font-bold text-white bg-[#088395] hover:bg-[#09637E]`} >Proceed to checkout</button></Link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      {
+
+        <div className='justify-end flex w-4/5 mx-auto'>
+          <table className='w-full lg:w-1/2 border p-10 border-collapse'>
+            <thead className='carttotalsThead'>
+              <tr>
+                <th colSpan={2} className='bg-[#f5f5f5] h-[60px] ' >
+                  <h2 style={{ color: 'black' }} className={`${rasingFont.className} text-left pl-3 text-2xl`}>CART TOTALS</h2>
+                </th>
+              </tr>
+            </thead>
+            <tbody className={`${roboto.className} text-left`}>
+              <tr className=''>
+                <td className='py-4 px-8'>Subtotal</td>
+                <td className='text-right py-4 px-8'>{totalAmount}</td>
+              </tr>
+              <tr>
+                <td className='py-4 px-8'>
+                  Total
+                </td>
+                <td className='text-right py-4 px-8'>
+                  {totalAmount}
+                </td>
+              </tr>
+              <tr className='p-3 flex justify-center w-full mx-auto'>
+                <td className='p-3 flex justify-center w-full mx-auto' colSpan={2}>
+                  <button className={`${roboto.className} w-full ${items.length > 0 ? 'cursor-pointer' : 'cursor-no-drop'} flex justify-center text-lg p-2 font-bold text-white bg-[#088395] hover:bg-[#09637E]`} > <Link href={'/checkout'} className={`${items.length > 0 ? 'pointer-events-auto' : 'pointer-events-none'}`}>Proceed to checkout</Link></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      }
     </div>
+
   )
 }
 

@@ -7,7 +7,6 @@ import { toast } from "sonner"
 import * as z from "zod"
 import { IoIosLock } from "react-icons/io";
 
-
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -62,10 +61,10 @@ const CheckoutPage = () => {
     })
     function onSubmit(data: BugReportType) {
         console.log("Form məlumatları:", data)
-        alert('Congratulations, the course was successfully completed.')
-        dispatch(clearBasket())
-        reset() // göndərildikdən sonra formu təmizlə4
         route.push('/my-course')
+        dispatch(clearBasket())
+        reset() // göndərildikdən sonra formu təmizlə
+        alert('Congratulations, the course was successfully completed.')
     }
     return (
         <div className="container mx-auto my-20">
